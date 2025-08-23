@@ -4,7 +4,7 @@
 #define MOUSE   3
 #define SCROLL  4
 #define SNIPE   5
-#define FN      6
+#define FUNC    6
 
 #include <behaviors/mouse_keys.dtsi>
 #include <dt-bindings/zmk/mouse.h>
@@ -76,7 +76,7 @@
 &kp Q          &kp W      &kp E              &kp R        &kp T                                        &kp Y     &kp U          &kp I           &kp O         &kp P
 &hm LGUI A     &hm LALT S &hm LCTRL D        &hm LSHIFT F &kp G                                        &kp H     &hm RSHIFT J   &hm RCTRL K  &hm RALT L    &hm RGUI SEMI
 &kp Z          &kp X      &kp C              &kp V        &kp B                                        &kp N     &kp M          &kp COMMA       &kp DOT       &kp SLASH
-&mo FN         &trans     &lt 5 C_PLAY_PAUSE &lt 4 ESC    &lt 3 TAB &lt NUM SPACE        &lt NAV ENTER &kp BSPC                                               &lt NAV DEL
+&trans         &trans     &lt 5 C_PLAY_PAUSE &lt 4 ESC    &lt 3 TAB &lt NUM SPACE        &lt NAV ENTER &kp BSPC                                               &lt FUNC DEL
             >;
         };
 
@@ -94,7 +94,7 @@
             label = "NAV";
             bindings = <
 &trans           &trans        &trans        &trans        &trans                       &trans          &kp HOME         &trans            &kp END   &kp DEL
-&bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                       &kp LEFT        &kp DOWN         &kp UP            &kp RIGHT &trans
+&trans           &trans        &trans        &trans        &trans                       &kp LEFT        &kp DOWN         &kp UP            &kp RIGHT &trans
 &trans           &trans        &trans        &trans        &trans                       &trans          &kp LC(LG(LEFT)) &kp LC(LG(RIGHT)) &trans    &kp BSLH
 &trans           &trans        &trans        &trans        &trans &trans        &trans  &trans                                                       &trans
             >;
@@ -103,10 +103,10 @@
         mouse_layer {
             label = "MOUSE";
             bindings = <
-&none   &none   &none   &none   &none                   &none &none     &none     &none     &none
-&trans  &trans  &trans  &trans  &trans                  &none &mkp LCLK &mkp MCLK &mkp RCLK &mo SCROLL
-&none   &none   &none   &none   &none                   &none &none     &none     &none     &none
-&none   &none   &none   &none   &none                   &trans  &none                       &none
+&none           &none           &none         &none      &none                   &none &none     &none     &none     &none
+&none           &none           &none         &none      &none                   &none &mkp LCLK &mkp MCLK &mkp RCLK &mo SCROLL
+&none           &none           &none         &none      &none                   &none &none     &none     &none     &none
+&none           &trans          &trans        &trans     &trans  &trans  &trans  &none                               &none
             >;
         };
 
@@ -129,10 +129,9 @@
 &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans                          &trans
             >;
         };
-    };
-
-    fn_layer {
-            label = "FN";
+    
+        func_layer {
+            label = "FUNC";
             bindings = <
 &trans           &trans        &trans        &trans        &trans                       &trans           &trans        &trans        &trans        &trans
 &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                       &trans           &trans        &trans        &trans        &trans
@@ -140,4 +139,5 @@
 &trans           &trans        &trans        &trans        &trans &trans        &trans  &trans                                                     &trans
             >;
         };
+    };
 };
